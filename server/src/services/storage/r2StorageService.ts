@@ -285,6 +285,14 @@ class R2StorageService {
       return;
     }
 
+    if (key.trim().length === 0) {
+      throw new Error("Invalid storage key: key cannot be empty");
+    }
+
+    if (key.includes("..")) {
+      throw new Error("Invalid storage key: path traversal not allowed");
+    }
+
     try {
       await this.client.send(
         new DeleteObjectCommand({
