@@ -1,5 +1,6 @@
 import Papa from "papaparse";
 import { DateTime } from "luxon";
+import { authedFetch } from "@/api/utils";
 import type { UmamiEvent } from "./types";
 
 export class CSVWorkerManager {
@@ -119,7 +120,6 @@ export class CSVWorkerManager {
       created_at: rawEvent.created_at,
     };
 
-
     if (!umamiEvent.created_at) {
       return null;
     }
@@ -143,24 +143,16 @@ export class CSVWorkerManager {
     }
 
     try {
-      const response = await fetch(`/api/batch-import-events/${this.siteId}/${this.importId}`, {
+      const data = await authedFetch<{
+        quotaExceeded?: boolean;
+        message?: string;
+      }>(`/api/batch-import-events/${this.siteId}/${this.importId}`, undefined, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({
+        data: {
           events,
           isLastBatch,
-        }),
+        },
       });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({ error: "Unknown error" }));
-        throw new Error(errorData.error || `HTTP ${response.status}`);
-      }
-
-      const data = await response.json();
 
       if (data.quotaExceeded) {
         this.quotaExceeded = true;

@@ -122,8 +122,6 @@ export async function batchImportEvents(request: FastifyRequest<BatchImportReque
         }
 
         return reply.send({
-          success: true,
-          importedCount: 0,
           quotaExceeded: true,
           message: quotaMessage,
         });
@@ -136,11 +134,7 @@ export async function batchImportEvents(request: FastifyRequest<BatchImportReque
           await updateImportStatus(importId, "completed", "No valid events found in the final batch");
         }
 
-        return reply.send({
-          success: true,
-          importedCount: 0,
-          message: "No valid events in batch",
-        });
+        return reply.send({});
       }
 
       await clickhouse.insert({
@@ -159,19 +153,13 @@ export async function batchImportEvents(request: FastifyRequest<BatchImportReque
         await updateImportStatus(importId, "completed", finalMessage);
       }
 
-      return reply.send({
-        success: true,
-        importedCount: transformedEvents.length,
-        message: `Imported ${transformedEvents.length} events${skippedDueToQuota > 0 ? ` (${skippedDueToQuota} skipped due to quota)` : ""}`,
-      });
+      return reply.send({});
     } catch (insertError) {
       const errorMessage = insertError instanceof Error ? insertError.message : "Unknown error";
       await updateImportStatus(importId, "failed", `Failed to insert events: ${errorMessage}`);
 
       return reply.status(500).send({
-        success: false,
-        error: "Failed to insert events",
-        message: errorMessage,
+        error: `Failed to insert events: ${errorMessage}`,
       });
     }
   } catch (error) {
