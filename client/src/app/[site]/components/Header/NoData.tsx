@@ -1,27 +1,37 @@
 import {
   SiAngular,
   SiAstro,
+  SiBigcommerce,
+  SiCarrd,
+  SiContentful,
   SiDocusaurus,
   SiDrupal,
   SiFramer,
   SiGatsby,
+  SiGhost,
+  SiGitbook,
   SiGoogletagmanager,
   SiHugo,
   SiJekyll,
+  SiJoomla,
   SiLaravel,
+  SiMintlify,
   SiNextdotjs,
   SiNuxt,
+  SiPrestashop,
   SiReact,
   SiRemix,
+  SiSanity,
   SiShopify,
   SiSquarespace,
+  SiStrapi,
   SiSvelte,
+  SiVitepress,
   SiVuedotjs,
   SiWebflow,
   SiWix,
   SiWoocommerce,
   SiWordpress,
-  SiMintlify,
 } from "@icons-pack/react-simple-icons";
 import React from "react";
 import { useGetSite, useSiteHasData } from "../../../../api/admin/hooks/useSites";
@@ -151,10 +161,40 @@ export function NoData() {
                   href="https://rybbit.com/docs/guides/astro"
                 />
                 <Card
+                  icon={<SiBigcommerce className="w-5 h-5" />}
+                  title="BigCommerce"
+                  description=""
+                  href="https://rybbit.com/docs/guides/bigcommerce"
+                />
+                <Card
+                  icon={<SiCarrd className="w-5 h-5" />}
+                  title="Carrd"
+                  description=""
+                  href="https://rybbit.com/docs/guides/carrd"
+                />
+                <Card
+                  icon={<SiContentful className="w-5 h-5" />}
+                  title="Contentful"
+                  description=""
+                  href="https://rybbit.com/docs/guides/contentful"
+                />
+                <Card
                   icon={<SiGatsby className="w-5 h-5" />}
                   title="Gatsby"
                   description=""
                   href="https://rybbit.com/docs/guides/react/gatsby"
+                />
+                <Card
+                  icon={<SiGhost className="w-5 h-5" />}
+                  title="Ghost"
+                  description=""
+                  href="https://rybbit.com/docs/guides/ghost"
+                />
+                <Card
+                  icon={<SiGitbook className="w-5 h-5" />}
+                  title="GitBook"
+                  description=""
+                  href="https://rybbit.com/docs/guides/gitbook"
                 />
                 <Card
                   icon={<SiRemix className="w-5 h-5" />}
@@ -194,6 +234,12 @@ export function NoData() {
                   href="https://rybbit.com/docs/guides/jekyll"
                 />
                 <Card
+                  icon={<SiJoomla className="w-5 h-5" />}
+                  title="Joomla"
+                  description=""
+                  href="https://rybbit.com/docs/guides/joomla"
+                />
+                <Card
                   icon={<SiLaravel className="w-5 h-5" />}
                   title="Laravel"
                   description=""
@@ -206,6 +252,18 @@ export function NoData() {
                   href="https://rybbit.com/docs/guides/mintlify"
                 />
                 <Card
+                  icon={<SiPrestashop className="w-5 h-5" />}
+                  title="PrestaShop"
+                  description=""
+                  href="https://rybbit.com/docs/guides/prestashop"
+                />
+                <Card
+                  icon={<SiSanity className="w-5 h-5" />}
+                  title="Sanity"
+                  description=""
+                  href="https://rybbit.com/docs/guides/sanity"
+                />
+                <Card
                   icon={<SiShopify className="w-5 h-5" />}
                   title="Shopify"
                   description=""
@@ -216,6 +274,18 @@ export function NoData() {
                   title="Squarespace"
                   description=""
                   href="https://rybbit.com/docs/guides/squarespace"
+                />
+                <Card
+                  icon={<SiStrapi className="w-5 h-5" />}
+                  title="Strapi"
+                  description=""
+                  href="https://rybbit.com/docs/guides/strapi"
+                />
+                <Card
+                  icon={<SiVitepress className="w-5 h-5" />}
+                  title="VitePress"
+                  description=""
+                  href="https://rybbit.com/docs/guides/vitepress"
                 />
                 <Card
                   icon={<SiWordpress className="w-5 h-5" />}
