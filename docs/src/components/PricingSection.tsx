@@ -133,10 +133,10 @@ export function PricingSection() {
       <div className="max-w-[1300px] mx-auto px-4">
         <div className="mb-12 text-center max-w-3xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight pb-4 text-transparent bg-clip-text bg-gradient-to-b from-neutral-900 via-neutral-700 to-neutral-500 dark:from-white dark:via-gray-200 dark:to-gray-400">
-            Simple, Transparent Pricing
+            Pricing
           </h2>
           <p className="text-lg text-neutral-600 dark:text-neutral-300">
-            Privacy-friendly analytics with all the features you need to grow
+            Try Rybbit today risk-free with our 30-day money-back guarantee.
           </p>
         </div>
 
